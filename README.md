@@ -30,7 +30,7 @@ With Digital transformation we developed a  Hotel online Check in/out system bec
         To run the web application: 
 
             1- Download Python version 3.8.3
-            2- Install the python 
+            2- Install python 
             3- Add Python to Path
             4- Check the version of python on the command prompt by running the command "python --version".
             5- Using the command promp, move to the SOURCE folder inside PROJECT-CD. 
