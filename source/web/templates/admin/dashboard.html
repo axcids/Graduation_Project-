@@ -1,0 +1,97 @@
+{% extends 'admin/base.html' %}
+{% block title %} Dashboard {% endblock %}
+{% block body %}
+<div>
+    <div id="qr-cont">
+        <img src="" alt="QRCode" id="qr-img" width="400" height="400" />
+        <p id="qr-code" style="color: white">
+        </p>
+    </div>
+    <nav>
+        <a href="/logout">Logout</a>
+    </nav>
+    <div class="container">
+        <h1>Reservations List ( {{r_type}} ): </h1>
+        <form action="">
+            <select name="type">
+                <option value="all" {% if r_type == 'all' %} selected {% endif %}> All Reservations </option>
+                <option value="booked" {% if r_type == 'booked' %} selected {% endif %}> Booked </option>
+                <option value="sent" {% if r_type == 'sent' %} selected {% endif %}> Sent </option>
+                <option value="pending" {% if r_type == 'pending' %} selected {% endif %}> Pending </option>
+                <option value="checked_in" {% if r_type == 'checked_in' %} selected {% endif %}> Checked-In </option>
+                <option value="checked_out" {% if r_type == 'checked_out' %} selected {% endif %}> Checked-Out </option>
+            </select>
+            <button>OK</button>
+            <br />
+            <br />
+        </form>
+        {% if reservations|length == 0: %}
+        <p>No reservations </p>
+        {% else: %}
+        <table border="1">
+            <thead>
+                <th>ID</th>
+                <th>Arrival Date</th>
+                <th>Depurture Date</th>
+                <th>nights</th>
+                <th>Adults</th>
+                <th>Children</th>
+                <th>Status</th>
+                <th>Name</th>
+                <th>Room Number</th>
+                <th>Floor</th>
+                <th>Room Rate</th>
+                <th>Actions</th>
+            </thead>
+            <tbody>
+                {% for r in reservations %}
+                <tr>
+                    <td>{{r.id}}</td>
+                    <td>{{r.arrival_date}}</td>
+                    <td>{{r.departure_date}}</td>
+                    <td>{{r.nights}}</td>
+                    <td>{{r.adults}}</td>
+                    <td>{{r.children}}</td>
+                    <td>{{r.status}}</td>
+                    <td>{{r.user_info.profile.first_name + " " + r.user_info.profile.last_name}}</td>
+                    <td>{{r.room_info.number}}</td>
+                    <td>{{r.room_info.floor}}</td>
+                    <td>{{r.room_info.rate}} SAR</td>
+                    <td>
+                        <!-- send to user -->
+                        {% if r.status == 'BOOKED' %}
+                        <form action="{{url_for('send_to_client')}}" method="post">
+                            <input type="hidden" name="id" value={{r.id}}>
+                            <button>SEND TO CLIENT</button>
+                        </form>
+                        {% endif %}
+                        {% if r.status == 'PENDING' %}
+                        <form action="{{url_for('approve_check_in')}}" method="post">
+                            <input type="hidden" name="id" value={{r.id}}>
+                            <button>APPROVE</button>
+                        </form>
+                        {% endif %}
+                        <br />
+                        <button class='qr-show' data-qr-code="{{r.qrcode}}" data-qr-img="{{r.qrcode_img}}">View
+                            QR-Code</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+    <script>
+        $(".qr-show").on('click', function () {
+            $("#qr-img").attr('src', '/' + $(this).data('qr-img'));
+            $("#qr-code").text($(this).data('qr-code'));
+            $("#qr-cont").css('display', 'flex');
+        });
+
+        $("#qr-cont").on('click', (e) => {
+            if (e.target !== e.currentTarget) return;
+            $("#qr-cont").css('display', 'none');
+        });
+    </script>
+</div>
+{% endblock %}
