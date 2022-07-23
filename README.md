@@ -1,4 +1,4 @@
-With Digital transformation we developed a  Hotel online Check in/out system because current manual Check-In system uses paper and direct human interaction. The purpose of this project is to create a functional Web and Mobile Applications for users to Check in or out the hotel room easily and only by click on their phones.
+With Digital transformation we developed a  Hotel online Check in/out system because current manual Check-In system uses paper and direct human interaction. The purpose of this project is to create a functional Web and Mobile Applications for users to Check in or out the hotel room easily and only by a click on their phones.
 
     Group Details: 
 
