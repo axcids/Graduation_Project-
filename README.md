@@ -5,11 +5,6 @@ With Digital transformation we developed a  Hotel online Check in/out system bec
         University: Saudi Electronic University
         Project Supervisor: Dr. Mohammed Habib 
         Project Title:	Hotel Self Check-in/out App 
-        Advisor Name: Dr. Mohammed Habib
-
-        1- Abdulmajeed Albilal
-        2- Faisal Aljulayfi
-        3- Ayman Alzahrani
 
     Prerequistes: 
 
