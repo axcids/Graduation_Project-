@@ -58,10 +58,9 @@ With Digital Transformation, we developed an **Online Hotel Check-in/out System*
 3. Create a new folder at `C://` and name it `flutter`.  
 4. **Unzip** the downloaded Flutter SDK files into the `flutter` folder.  
 5. Open the **Start Menu**, type `env`, and **add the Flutter path** (`C://flutter/bin`) to the system PATH.  
-6. Open the command prompt and run:  
+6. Open the command prompt and run this command to accept all the licenses:  
    ```bash
    flutter doctor --android-licenses
-Accept all the licenses.
 7. Open Android Studio, go to Settings > SDK Manager.
 8. Select SDK Tools and check the box for Android SDK Command-line Tools, then click Apply to install.
 9. Restart Android Studio.
