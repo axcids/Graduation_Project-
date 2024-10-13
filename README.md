@@ -66,13 +66,13 @@ Accept all the licenses.
 8. Select SDK Tools and check the box for Android SDK Command-line Tools, then click Apply to install.
 9. Restart Android Studio.
 10. Create a new Flutter application in Android Studio.
-11. Navigate to:
-PROJECT_CD/SOURCE/FlutterApp 12. Copy the pubspec.yaml file from this folder.
+11. Navigate to: PROJECT_CD/SOURCE/FlutterApp 
+12. Copy the pubspec.yaml file from this folder.
 13. In Android Studio, change the Project View from Android to Project.
 14. Paste the copied pubspec.yaml file into the project folder and click Pub Get (top-right corner) to install dependencies.
 15. Copy and replace the lib and App folders from FlutterApp into your new Flutter project folders.
-16. Open the API Helper file located at:
-Helpers/lib/API_helper.dart 17. On line 7, update the IP address to your local IP address (leave the port unchanged).
+16. Open the API Helper file located at: Helpers/lib/API_helper.dart 
+17. On line 7, update the IP address to your local IP address (leave the port unchanged).
 18. In Android Studio, click Run to launch the mobile application.
 
 
